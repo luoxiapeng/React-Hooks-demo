@@ -24,9 +24,17 @@ import React, { useState } from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [age,setAge]=useState('19')
+  const [name,setName]=useState('JEK')
+  const [address,setAddress]=useState('广州天河')
   return(
     <div>
       <p>{count}</p>
+      <div>
+        <span>姓名：{name}</span>
+        <span>年龄：{age}</span>
+        <span>地址：{address}</span>
+      </div>
       <button onClick={()=>{setCount(count+1)}}>click me</button>
     </div>
   )
