@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 // class App extends Component {
 //   constructor(props) {
@@ -27,6 +27,10 @@ function App() {
   const [age,setAge]=useState('19')
   const [name,setName]=useState('JEK')
   const [address,setAddress]=useState('广州天河')
+  useEffect(() => {
+    console.log(count)
+    console.log(age)
+  }, [age, count])
   return(
     <div>
       <p>{count}</p>
@@ -35,7 +39,7 @@ function App() {
         <span>年龄：{age}</span>
         <span>地址：{address}</span>
       </div>
-      <button onClick={()=>{setCount(count+1)}}>click me</button>
+      <button onClick={()=>{setCount(count+1); setAge('20')}}>click me</button>
     </div>
   )
   
