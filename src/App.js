@@ -1,27 +1,19 @@
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import React, { useState,useEffect } from 'react'
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { 
-//       count:0
-//      }
-//   }
-//   render() { 
-//     return ( 
-//       <div>
-//         <p>You clicked {this.state.count} times</p>
-//         <button onClick={this.addCount.bind(this)}>Chlick me</button>
-//       </div>
-//      );
-//   }
-//   addCount(){
-//     this.setState({
-//       count:this.state.count+1
-//     })
-//   }
-// }
 
+function Index() {
+  useEffect(() => {
+    console.log('Index老弟来了')
+    return () => {
+      console.log('Index老弟走了')
+    };
+  }, [])
+  return (<div>我是首页</div>)
+}
+function List() {
+  return (<div>我是列表页</div>)
+}
 function App() {
   const [count, setCount] = useState(0)
   const [age,setAge]=useState('19')
@@ -40,6 +32,14 @@ function App() {
         <span>地址：{address}</span>
       </div>
       <button onClick={()=>{setCount(count+1); setAge('20')}}>click me</button>
+      <Router>
+          <ul>
+              <li> <Link to="/">首页</Link> </li>
+              <li><Link to="/list/">列表</Link> </li>
+          </ul>
+          <Route path="/" exact component={Index} />
+          <Route path="/list/" component={List} />
+      </Router>
     </div>
   )
   
